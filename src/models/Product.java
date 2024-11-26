@@ -1,3 +1,5 @@
+package models;
+
 import java.util.Date;
 
 public class Product {
@@ -67,7 +69,7 @@ public class Product {
 
     // 3) Method to display product details
     public void display() {
-        System.out.println("Product Details:");
+        System.out.println("models.Product Details:");
         System.out.println("ID: " + id);
         System.out.println("Label: " + label);
         System.out.println("Brand: " + brand);

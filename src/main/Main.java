@@ -1,49 +1,34 @@
+package main;
+
 import models.Product;
+import models.Store;
 
 import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
 
-        // 1) Create an empty product
-        Product emptyProduct = new Product();
-        emptyProduct.display();
+        // Create a store
+        Store store = new Store(1, "123 Main Street", 50);
 
-        // 2) Create new products with specified characteristics
-        Product milk = new Product(1021, "Milk", "Delight", 0.0);
-        Product yogurt = new Product(2510, "Yogurt", "Vitalait", 0.0);
+        // Create products
+        Product milk = new Product(1021, "Milk", "Delight", 0.700);
+        Product yogurt = new Product(2510, "Yogurt", "Vitalait", 0.500);
         Product tomato = new Product(3250, "Tomato", "Sicam", 1.200);
 
-        // Display initial product details
-        milk.display();
-        yogurt.display();
-        tomato.display();
+        // Add products to the store
+        store.addProduct(milk);
+        store.addProduct(yogurt);
+        store.addProduct(tomato);
 
-        // 4) Assign a price to the milk product and display it
-        milk.setPrice(0.700);
-        milk.display();
+        // Display store details
+        store.displayStoreDetails();
 
-        // 5) Complete the missing information for each product
-        yogurt.setPrice(0.500);
-        tomato.setPrice(1.200);
+        // Adding a product with negative price (testing validation)
+        Product invalidProduct = new Product(4001, "Juice", "Tropicana", -1.500);
+        store.addProduct(invalidProduct);
 
-        // 6) Display modified products
-        yogurt.display();
-        tomato.display();
-
-        // 7) Display products using the toString() method
-        System.out.println(milk);
-        System.out.println(yogurt);
-        System.out.println(tomato);
-
-        // 8) Add an expiration date attribute and assign dates to existing products
-        milk.setExpirationDate(new Date(2024, 11, 20));  // Example date
-        yogurt.setExpirationDate(new Date(2024, 11, 25));  // Example date
-        tomato.setExpirationDate(new Date(2025, 1, 15));  // Example date
-
-        // Display products with expiration dates
-        milk.display();
-        yogurt.display();
-        tomato.display();
+        // Display updated store details
+        store.displayStoreDetails();
     }
 }
